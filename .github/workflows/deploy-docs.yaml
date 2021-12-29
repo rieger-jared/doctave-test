@@ -1,0 +1,12 @@
+name: Deploy Docs to Doctave
+
+on: [push, pull_request]
+
+jobs:
+  deploy-doc:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Publish docs
+      env:
+        DOCTAVE_UPLOAD_TOKEN: ${{ secrets.DOCTAVE_UPLOAD_TOKEN }}
+      run: curl -Ls https://docs.doctave.com/push.sh | bash -s -- .
