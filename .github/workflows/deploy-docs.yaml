@@ -6,6 +6,7 @@ jobs:
   deploy-doc:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Publish docs
       env:
         DOCTAVE_UPLOAD_TOKEN: ${{ secrets.DOCTAVE_UPLOAD_TOKEN }}
